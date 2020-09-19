@@ -1,0 +1,94 @@
+
+> api@0.0.0 start /usr/share/nginx/html/dieng/api
+> node ./bin/www --unhandled-rejections=strict
+
+[0mOPTIONS /profile [32m204 [0m1.562 ms - 0[0m
+[0mOPTIONS /users/current [32m204 [0m0.147 ms - 0[0m
+[0mGET /users/current [36m304 [0m3.268 ms - -[0m
+Executing (default): SELECT `id`, `user_id`, `alamat`, `no_hp`, `provinsi`, `kabupaten`, `kode_pos`, `prov_id`, `kab_id`, `createdAt`, `updatedAt` FROM `profiles` AS `profile` WHERE `profile`.`user_id` = 798 LIMIT 1;
+[0mGET /profile [36m304 [0m28.339 ms - -[0m
+[0mGET /rajaongkir/provinsi [36m304 [0m1047.387 ms - -[0m
+[0mGET /rajaongkir/kota/6 [32m200 [0m959.500 ms - 854[0m
+Executing (default): UPDATE `users` SET `valid`=?,`updatedAt`=? WHERE `id` = ?
+Executing (default): SELECT `id`, `username`, `password`, `email`, `first_name`, `last_name`, `tipe`, `level`, `valid`, `no_hp`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`id` = '697';
+[0mGET /users/validasi/697 [32m200 [0m9.830 ms - 62[0m
+Executing (default): SELECT `id`, `user_id`, `alamat`, `no_hp`, `provinsi`, `kabupaten`, `kode_pos`, `prov_id`, `kab_id`, `createdAt`, `updatedAt` FROM `profiles` AS `profile` WHERE `profile`.`user_id` = '697' LIMIT 1;
+profile {
+  dataValues: {
+    id: 572,
+    user_id: 697,
+    alamat: 'Jl. Raya ABC no. 59.',
+    no_hp: null,
+    provinsi: '13',
+    kabupaten: '452',
+    kode_pos: '12312',
+    prov_id: null,
+    kab_id: null,
+    createdAt: 2020-09-15T15:22:55.000Z,
+    updatedAt: 2020-09-15T15:23:17.000Z
+  },
+  _previousDataValues: {
+    id: 572,
+    user_id: 697,
+    alamat: 'Jl. Raya ABC no. 59.',
+    no_hp: null,
+    provinsi: '13',
+    kabupaten: '452',
+    kode_pos: '12312',
+    prov_id: null,
+    kab_id: null,
+    createdAt: 2020-09-15T15:22:55.000Z,
+    updatedAt: 2020-09-15T15:23:17.000Z
+  },
+  _changed: Set {},
+  _options: {
+    isNewRecord: false,
+    _schema: null,
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'id',        'user_id',
+      'alamat',    'no_hp',
+      'provinsi',  'kabupaten',
+      'kode_pos',  'prov_id',
+      'kab_id',    'createdAt',
+      'updatedAt'
+    ]
+  },
+  isNewRecord: false
+}
+
+                                BEGIN:VCARD
+                                VERSION:3.0
+                                N:Hadumi;Didik;;;
+                                FN:Didik Hadumi
+                                ORG:MICE.ID;
+                                TITLE:Person
+                                EMAIL;type=INTERNET;type=WORK;type=pref:dhs0223@gmail.com
+                                TEL;type=CELL:083129663129
+                                item1.ADR;type=HOME:;;Jl. Raya ABC no. 59.;452;13;12312;Indonesia
+                                item1.X-ABADR:id
+                                NOTE:Kontak ini digenerate pada Event MICE DIENG
+                                item2.URL;type=pref:http://dieng.mice.com/
+                                item2.X-ABLabel:_$!<HomePage>!$_
+                                CATEGORIES:Work,Event MICE Dieng
+                                END:VCARD
+Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (/usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-connection/index.js:784:19)
+    at SMTPConnection.login (/usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-connection/index.js:448:38)
+    at /usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-transport/index.js:271:32
+    at SMTPConnection.<anonymous> (/usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-connection/index.js:215:17)
+    at Object.onceWrapper (events.js:416:28)
+    at SMTPConnection.emit (events.js:310:20)
+    at SMTPConnection._actionEHLO (/usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-connection/index.js:1313:14)
+    at SMTPConnection._processResponse (/usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-connection/index.js:942:20)
+    at SMTPConnection._onData (/usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-connection/index.js:749:14)
+    at TLSSocket.SMTPConnection._onSocketData (/usr/share/nginx/html/dieng/api/node_modules/nodemailer/lib/smtp-connection/index.js:195:44)
+    at TLSSocket.emit (events.js:310:20)
+    at addChunk (_stream_readable.js:286:12)
+    at readableAddChunk (_stream_readable.js:268:9)
+    at TLSSocket.Readable.push (_stream_readable.js:209:10)
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:186:23) {
+  code: 'EAUTH',
+  command: 'API'
+}

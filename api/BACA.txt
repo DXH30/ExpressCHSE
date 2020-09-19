@@ -1,0 +1,2 @@
+Dia hidup npm nya di
+# tmux attach

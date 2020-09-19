@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<!-- <meta charset="utf-8" />
+<title>MICE DIENG | Pembayaran</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+<meta content="Themesdesign" name="author" />
+<!-- App favicon -->
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+<!-- DataTables -->
+<link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />     
+
+
+
+<!-- Bootstrap Css -->
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- Icons Css -->
+<link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+<!-- App Css-->
+<link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body data-topbar="colored" data-layout="horizontal" data-layout-size="boxed">
+<!-- Begin page -->
+-->
+<div id="layout-wrapper">
+
+
+
+    <header id="page-topbar">
+
+        <div class="navbar-header">
+
+            <div class="container-fluid">
+
+                <div class="float-right"></div>
+
+
+
+                <!-- LOGO -->
+
+                <div class="navbar-brand-box"></div>
+
+
+
+                <button type="button" class="btn btn-sm mr-2 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">
+
+                    <i class="fa fa-fw fa-bars"></i>
+
+                </button>
+
+
+
+                <div class="topnav">
+
+                    <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+
+
+
+                        <div class="collapse navbar-collapse" id="topnav-menu-content"></div>
+
+                    </nav>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </header>
+
+
+
+    <!-- ============================================================== -->
+
+    <!-- Start right Content here -->
+
+    <!-- ============================================================== -->
+
+    <div class="main-content">
+
+
+
+        <div class="page-content">
+
+
+
+            <!-- Page-Title -->
+
+            <div class="page-title-box">
+
+                <div class="container-fluid">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-md-8">
+
+                            <h4 class="page-title mb-1">Data Tables</h4>
+
+                            <ol class="breadcrumb m-0">
+
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+
+                                <li class="breadcrumb-item active">Data Tables</li>
+
+                            </ol>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="float-right d-none d-md-block">
+
+                                <div class="dropdown">
+
+                                    <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <i class="mdi mdi-settings-outline mr-1"></i> Settings
+
+                                    </button>
+
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
+
+                                        <a class="dropdown-item" href="#">Action</a>
+
+                                        <a class="dropdown-item" href="#">Another action</a>
+
+                                        <a class="dropdown-item" href="#">Something else here</a>
+
+                                        <div class="dropdown-divider"></div>
+
+                                        <a class="dropdown-item" href="#">Separated link</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end page title end breadcrumb -->
+
+
+
+            <div class="page-content-wrapper">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+
+                        <div class="col-12">
+
+                            <div class="card">
+
+                                <div class="card-body">
+
+
+
+                                    <h4 class="header-title">Pembayaran</h4>
+
+                                    <p class="card-title-desc">
+                                    Disini adalah detail pembayaran yang dilakukan oleh orang-orang
+                                    </p>
+                                    <table border="1" id="datatable" class="table table-bordered dt-responsive nowrap"
+                                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Cek</th>
+                                                <th>Nominal</th>
+                                                <th>Kurir</th>
+                                                <th>No Rek</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Validasi</th>
+                                                <th>Alamat</th>
+                                                <th>Provinsi</th>
+                                                <th>Kabupaten/Kota</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <% pembayaran.forEach(function(item) { %>
+                                        <tr>
+                                            <% 
+                                            var url=`https://api-dieng.primakom.co.id/images/pembayaran_${item.getDataValue('userid')}.png`;
+                                            %>
+                                            <td><a href="<%=url%>" class="btn btn-block btn-warning"><%=item.getDataValue('userid')%></a></td>
+                                            <td><%= item.getDataValue('nominal') %></td>
+                                            <td><%= item.getDataValue('kurir') %></td>
+                                            <td><%= item.getDataValue('no_rek') %></td>
+                                            <% user.forEach(function(alam) { %>
+                                            <% if (item.getDataValue('userid') == alam.getDataValue('id')) { %>
+                                            <td><%= alam.getDataValue('first_name') %></td>
+                                            <td><%= alam.getDataValue('last_name') %></td>
+                                            <td><%= alam.getDataValue('email') %></td>
+                                            <td>
+                                                <% if (null == alam.getDataValue('valid')) { %>
+                                                <% var urln =
+                                                "https://api-dieng.primakom.co.id/users/validasi/"+alam.getDataValue('id'); %>
+                                                <a href=<%=urln%>>Validasi</a> | 
+                                                    Invalid
+                                                <% } else { %>
+                                                    Valid
+                                                <% } %>
+                                            </td>
+                                            <% } %>
+                                            <% }); %>
+                                            <% profile.forEach(function(elem) { %>
+                                            <% if (item.getDataValue('userid') == elem.getDataValue('user_id')) { %>
+                                            <td><%= elem.getDataValue('alamat') %></td>
+                                            <td><%= elem.getDataValue('provinsi') %></td>
+                                            <td><%= elem.getDataValue('kabupaten') %></td>
+                                            <% } %>
+                                            <% }); %>
+                                        </tr>
+                                        <% }); %>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div> <!-- end col -->
+
+                    </div> <!-- end row -->
+
+
+
+                </div>
+
+                <!-- end container-fluid -->
+
+            </div> 
+
+            <!-- end page-content-wrapper -->
+
+        </div>
+
+        <!-- End Page-content -->
+
+
+
+
+
+        <footer class="footer">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+
+                        2020 © MICE DIENG.
+
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <div class="text-sm-right d-none d-sm-block">
+
+                            Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+    <!-- end main content-->
+
+
+
+</div>
+
+<!-- END layout-wrapper -->
+
+
+
+<!-- Right Sidebar -->
+
+<div class="right-bar">
+
+    <div data-simplebar class="h-100">
+
+
+
+        <!-- Nav tabs -->
+
+        <ul class="nav nav-tabs nav-tabs-custom rightbar-nav-tab nav-justified" role="tablist">
+
+            <li class="nav-item">
+
+            <a class="nav-link py-3 active" data-toggle="tab" href="#chat-tab" role="tab">
+
+                <i class="mdi mdi-message-text font-size-22"></i>
+
+            </a>
+
+            </li>
+
+            <li class="nav-item">
+
+            <a class="nav-link py-3" data-toggle="tab" href="#tasks-tab" role="tab">
+
+                <i class="mdi mdi-format-list-checkbox font-size-22"></i>
+
+            </a>
+
+            </li>
+
+            <li class="nav-item">
+
+            <a class="nav-link py-3" data-toggle="tab" href="#settings-tab" role="tab">
+
+                <i class="mdi mdi-settings font-size-22"></i>
+
+            </a>
+            </li>
+        </ul>
+    </div> <!-- end slimscroll-menu-->
+
+</div>
+
+<!-- /Right-bar -->
+
+
+<!--
+<!-- Right bar overlay-->
+
+<div class="rightbar-overlay"></div>
+<!-- JAVASCRIPT -->
+
+<script src="/assets/libs/jquery/jquery.min.js"></script>
+
+<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+
+
+
+<script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
+
+
+
+<!-- Required datatable js -->
+
+<script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+
+<script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Buttons examples -->
+
+<script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+
+<script src="/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+
+<script src="/assets/libs/jszip/jszip.min.js"></script>
+
+<script src="/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+
+<script src="/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+
+<script src="/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+
+<script src="/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+
+<script src="/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- Responsive examples -->
+
+<script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+
+<script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+
+
+<!-- Datatable init js -->
+
+<script>
+$(document).ready(function(){$("#datatable").DataTable(),$("#datatable-buttons").DataTable({lengthChange:!1,buttons:["copy","excel","pdf","colvis"]}).buttons().container().appendTo("#datatable-buttons_wrapper
+            .col-md-6:eq(0)")});
+</script>
+
+
+<script src="/assets/js/app.js"></script>
+
+-->
+</body>
+</html>
